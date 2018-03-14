@@ -10,12 +10,13 @@
     @foreach (var park in Model)
     {
         <div>
-            <img src="~/Content/@(park.ParkCode).jpg" />
+			<a href="@Url.Action("Detail" , "Home", new { parkCode = park.ParkCode })" ><img src="~/Content/@(park.ParkCode).jpg" /></a>
         </div>
         <div>
             <h3>@park.Name</h3>
             <p>@park.State</p>
             <p>@park.ParkDescription</p>
+			<hr />
         </div>
     }
 </div>

@@ -10,5 +10,7 @@ namespace NPGeek.Web.DAL
 	{
 		List<ParkModel> GetAllParks();
 		//bool SaveSurvey();
+
+		ParkModel GetParkDetail(string parkCode);
 	}
 }

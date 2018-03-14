@@ -62,5 +62,49 @@ namespace NPGeek.Web.DAL
 
         }
 
+		public ParkModel GetParkDetail(string parkCode)
+		{
+			ParkModel park = new ParkModel();
+
+			try
+			{
+				using (SqlConnection conn = new SqlConnection(connectionString))
+				{
+					conn.Open();
+					SqlCommand cmd = new SqlCommand("SELECT * FROM park WHERE parkCode = @parkCode;", conn);
+					cmd.Parameters.AddWithValue("@parkCode", parkCode);
+					
+					SqlDataReader reader = cmd.ExecuteReader();
+					while (reader.Read())
+					{ 
+						park.ParkCode = Convert.ToString(reader["parkCode"]);
+						park.Name = Convert.ToString(reader["parkName"]);
+						park.State = Convert.ToString(reader["state"]);
+						park.Acreage = Convert.ToInt32(reader["acreage"]);
+						park.ElevationInFeet = Convert.ToInt32(reader["elevationInFeet"]);
+						park.MilesOfTrail = Convert.ToInt32(reader["milesOfTrail"]);
+						park.NumberOfCampsites = Convert.ToInt32(reader["numberOfCampsites"]);
+						park.Climate = Convert.ToString(reader["climate"]);
+						park.YearFounded = Convert.ToInt32(reader["yearFounded"]);
+						park.AnnualVisitorCount = Convert.ToInt32(reader["annualVisitorCount"]);
+						park.InspirationalQuote = Convert.ToString(reader["inspirationalQuote"]);
+						park.InspirationalQuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]);
+						park.ParkDescription = Convert.ToString(reader["parkDescription"]);
+						park.EntryFee = Convert.ToInt32(reader["entryFee"]);
+						park.NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
+
+					}
+				}
+
+
+			}
+			catch(SqlException ex)
+			{
+				throw ex;
+			}
+
+			return park;
+		}
+
     }
 }

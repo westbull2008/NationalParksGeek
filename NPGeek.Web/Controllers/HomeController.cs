@@ -24,6 +24,13 @@ namespace NPGeek.Web.Controllers
             return View("Index", parks);
         }
 
+		public ActionResult Detail(string parkCode)
+		{
+			ParkModel park = dal.GetParkDetail(parkCode);
+
+			return View("Detail", park);
+		}
+
 
 		public ActionResult Survey()
 		{

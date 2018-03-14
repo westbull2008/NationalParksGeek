@@ -19,4 +19,6 @@ textarea {
 #logo img{
 	width: 50vw;
 	height: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
