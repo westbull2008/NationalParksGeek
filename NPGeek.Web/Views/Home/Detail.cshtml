@@ -8,18 +8,21 @@
 <h2>Detail</h2>
 
 <div>
-	<img src="~/Content/@(Model.ParkCode).jpg" />
-	<h3>@Model.Name</h3>
-	<p>@Model.State</p>
-	<p>@Model.ParkDescription</p>
-	<p>Number of Acres: @Model.Acreage</p>
-	<p>Elevation in Feet: @Model.ElevationInFeet</p>
-	<p>Miles of Trails: @Model.MilesOfTrail</p>
-	<p>Number of Campsites: @Model.NumberOfCampsites</p>
-	<p>Climate: @Model.Climate</p>
-	<p>Founded: @Model.YearFounded</p>
-	<p>Annual Visitors: @Model.AnnualVisitorCount</p>
-	<p>"@Model.InspirationalQuote" - @Model.InspirationalQuoteSource</p>
-	<p>Entry Fee: @Model.EntryFee</p>
-	<p>Number of Animal Species: @Model.NumberOfAnimalSpecies</p>
+    <img src="~/Content/@(Model.ParkCode).jpg" />
+    <a href="@Url.Action("Forecast" , "Forecast", new { parkCode = Model.ParkCode })">Weather Forecast</a>
+
+
+    <h3>@Model.Name</h3>
+    <p>@Model.State</p>
+    <p>@Model.ParkDescription</p>
+    <p>Number of Acres: @Model.Acreage</p>
+    <p>Elevation in Feet: @Model.ElevationInFeet</p>
+    <p>Miles of Trails: @Model.MilesOfTrail</p>
+    <p>Number of Campsites: @Model.NumberOfCampsites</p>
+    <p>Climate: @Model.Climate</p>
+    <p>Founded: @Model.YearFounded</p>
+    <p>Annual Visitors: @Model.AnnualVisitorCount</p>
+    <p>"@Model.InspirationalQuote" - @Model.InspirationalQuoteSource</p>
+    <p>Entry Fee: @Model.EntryFee</p>
+    <p>Number of Animal Species: @Model.NumberOfAnimalSpecies</p>
 </div>

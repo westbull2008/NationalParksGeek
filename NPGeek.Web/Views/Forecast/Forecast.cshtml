@@ -1,0 +1,49 @@
+﻿@model IList<NPGeek.Web.Models.ForecastModel>
+
+@{
+    ViewBag.Title = "Forecast";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Forecast</h2>
+
+<table>
+    <tr>
+        <th>Day</th>
+        <th>Low Temp</th>
+        <th>High Temp</th>
+        <th>Forecast</th>
+        <th>Temperature Advisory</th>
+        <th>Recommendations</th>
+    </tr>
+
+    @foreach (var forecast in Model)
+    {
+    <tr>
+        <td>@forecast.FiveDayForecastValue</td>
+        <td>@forecast.Low</td>
+        <td>@forecast.High</td>
+        @*<td>@forecast.Forecast</td>*@
+        <td><img src="~/Content/@(forecast.Forecast).png" /></td>
+        @if (forecast.High > 75)
+        {
+            <td>Bring an extra gallon of water!</td>
+        }
+        else if (forecast.Low < 20)
+        {
+            <td>You could be exposed to frigid temperatures. Take extra care!</td>
+        }
+        else if ((forecast.High - forecast.Low) >20)
+        {
+            <td>The temperature could vary significantly. Wear breathable layers!</td>
+        }
+        else
+        {
+            <td></td>
+        }
+
+        <td>@forecast.Instructions[forecast.Forecast] </td>
+    </tr>
+    }
+
+</table>
