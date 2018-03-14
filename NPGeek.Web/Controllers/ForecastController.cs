@@ -18,12 +18,19 @@ namespace NPGeek.Web.Controllers
         {
             this.dal = dal;
         }
-        public ActionResult Forecast(string parkCode)
+        public ActionResult ForecastFarenheit(string parkCode)
         {
             List<ForecastModel> forecast = dal.GetForecasts(parkCode);
 
-            return View("Forecast", forecast);
+            return View("ForecastFarenheit", forecast);
 
         }
+
+		public ActionResult ForecastCelsius (string parkCode)
+		{
+			List<ForecastModel> forecast = dal.GetForecasts(parkCode);
+
+			return View("ForecastCelsius", forecast);
+		}
     }
 }

@@ -16,7 +16,7 @@
             <h3>@park.Name</h3>
             <p>@park.State</p>
             <p>@park.ParkDescription</p>
-            <a href="@Url.Action("Forecast" , "Forecast", new { parkCode = park.ParkCode })" >Weather Forecast</a>
+            <a href="@Url.Action("ForecastFarenheit" , "Forecast", new { parkCode = park.ParkCode })" >Weather Forecast</a>
 			<hr />
         </div>
     }

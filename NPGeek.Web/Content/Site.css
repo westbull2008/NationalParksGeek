@@ -22,3 +22,8 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#weatherForecast {
+	width: 50px;
+}
+

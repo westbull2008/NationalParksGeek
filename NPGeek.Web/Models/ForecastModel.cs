@@ -5,21 +5,32 @@ using System.Web;
 
 namespace NPGeek.Web.Models
 {
-    public class ForecastModel
-    {
-        public string ParkCode { get; set; }
-        public int FiveDayForecastValue { get; set; }
-        public int Low { get; set; }
-        public int High { get; set; }
-        public string Forecast { get; set; }
-        public Dictionary<string, string> Instructions = new Dictionary<string, string>
-        {
-            {"snow", "Remember to pack your snowshoes!" },
-            {"rain", "Remember to bring rain gear and waterproof shoes!" },
-            {"thunderstorms", "Seek shelter and avoid hiking on exposed ridges!" },
-            {"sunny", "Remember your sunblock!" },
-            {"partly cloudy", "Enjoy your day!" },
-            {"cloudy", "Every cloud is a silver lining!" }
-        };
-    }
+	public class ForecastModel
+	{
+		public string ParkCode { get; set; }
+		public int FiveDayForecastValue { get; set; }
+		public int Low { get; set; }
+		public int High { get; set; }
+		public string Forecast { get; set; }
+
+		public Dictionary<string, string> Instructions = new Dictionary<string, string>
+		{
+			{"snow", "Remember to pack your snowshoes!" },
+			{"rain", "Remember to bring rain gear and waterproof shoes!" },
+			{"thunderstorms", "Seek shelter and avoid hiking on exposed ridges!" },
+			{"sunny", "Remember your sunblock!" },
+			{"partly cloudy", "Enjoy your day!" },
+			{"cloudy", "Every cloud is a silver lining!" }
+		};
+
+		public string TemperatureType { get; set; }
+
+		public int ToCelsius(int temperature)
+		{
+			int result = (temperature - 32) / (9 / 5);
+
+			return result;
+		}
+
+	}
 }

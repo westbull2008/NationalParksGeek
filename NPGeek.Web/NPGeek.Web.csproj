@@ -161,7 +161,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Survey.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
-    <Content Include="Views\Forecast\Forecast.cshtml" />
+    <Content Include="Views\Forecast\ForecastFarenheit.cshtml" />
+    <Content Include="Views\Forecast\ForecastCelsius.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

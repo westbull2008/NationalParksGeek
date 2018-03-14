@@ -9,7 +9,7 @@
 
 <div>
     <img src="~/Content/@(Model.ParkCode).jpg" />
-    <a href="@Url.Action("Forecast" , "Forecast", new { parkCode = Model.ParkCode })">Weather Forecast</a>
+    <a href="@Url.Action("ForecastFarenheit" , "Forecast", new { parkCode = Model.ParkCode })">Weather Forecast</a>
 
 
     <h3>@Model.Name</h3>

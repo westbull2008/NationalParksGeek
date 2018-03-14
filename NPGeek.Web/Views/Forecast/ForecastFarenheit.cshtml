@@ -6,25 +6,39 @@
 }
 
 <h2>Forecast</h2>
+<form method="get" action="@Url.Action("ForecastCelsius", "Forecast", new { parkCode = Model[1].ParkCode})"><input type="hidden" name="parkCode" value="@Model[1].ParkCode"/><button>View in Celsius!</button></form>
 
 <table>
-    <tr>
-        <th>Day</th>
-        <th>Low Temp</th>
-        <th>High Temp</th>
-        <th>Forecast</th>
-        <th>Temperature Advisory</th>
-        <th>Recommendations</th>
-    </tr>
 
-    @foreach (var forecast in Model)
-    {
-    <tr>
-        <td>@forecast.FiveDayForecastValue</td>
-        <td>@forecast.Low</td>
-        <td>@forecast.High</td>
+	<tr>
+
+		<th>Day</th>
+
+		<th>Low Temp</th>
+
+		<th>High Temp</th>
+
+		<th>Forecast</th>
+
+		<th>Temperature Advisory</th>
+
+		<th>Recommendations</th>
+
+	</tr>
+
+	@foreach (var forecast in Model)
+
+	{
+
+	<tr>
+
+		<td>@forecast.FiveDayForecastValue</td>
+
+		<td>@forecast.Low F</td>
+
+		<td>@forecast.High F</td>
         @*<td>@forecast.Forecast</td>*@
-        <td><img src="~/Content/@(forecast.Forecast).png" /></td>
+        <td><img src="~/Content/@(forecast.Forecast).png" id="weatherForecast" /></td>
         @if (forecast.High > 75)
         {
             <td>Bring an extra gallon of water!</td>
