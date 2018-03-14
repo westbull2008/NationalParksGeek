@@ -30,10 +30,6 @@ namespace NPGeek.Web.Controllers
 
 			return View("Detail", park);
 		}
-        
-		public ActionResult Survey()
-		{
-			return View();
-		}
+
     }
 }

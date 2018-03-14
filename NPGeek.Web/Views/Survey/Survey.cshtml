@@ -1,0 +1,35 @@
+﻿@model NPGeek.Web.Models.SurveyModel
+
+@{
+    ViewBag.Title = "Survey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Survey</h2>
+
+<form method="post" action="@Url.Action("FavoriteParks", "Survey")">
+
+    <p>
+        Choose a park:
+        <select name="Park">
+            <option value="CVNP">Cuyahoga Valley National Park</option>
+            <option value="ENP">Everglades National Park</option>
+            <option value="GCNP">Grand Canyon National Park</option>
+            <option value="GNP">Glacier National Park</option>
+            <option value="GSMNP">Great Smoky Mountains National Park</option>
+            <option value="GTNP">Grand Teton National Park</option>
+            <option value="MRNP">Mount Rainier National Park</option>
+            <option value="RMNP">Rocky Mountain National Park</option>
+            <option value="YNP">Yellowstone National Park</option>
+            <option value="YNP2">Yosemite National Park</option>
+
+            }
+
+        </select>
+
+    </p>
+
+
+
+</form>
+

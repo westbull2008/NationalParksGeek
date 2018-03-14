@@ -25,9 +25,9 @@ namespace NPGeek.Web.Models
 
 		public string TemperatureType { get; set; }
 
-		public int ToCelsius(int temperature)
+		public double ToCelsius(int temperature)
 		{
-			int result = (temperature - 32) / (9 / 5);
+			double result = ((temperature - 32) / 1.8);
 
 			return result;
 		}

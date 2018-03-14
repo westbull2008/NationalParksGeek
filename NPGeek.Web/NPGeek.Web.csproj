@@ -138,15 +138,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ForecastController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="DAL\ForecastDAL.cs" />
     <Compile Include="DAL\IForecastDal.cs" />
     <Compile Include="DAL\IParkDAL.cs" />
+    <Compile Include="DAL\ISurveyDAL.cs" />
     <Compile Include="DAL\ParkDAL.cs" />
+    <Compile Include="DAL\SurveyDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ForecastModel.cs" />
     <Compile Include="Models\ParkModel.cs" />
+    <Compile Include="Models\SurveyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,10 +163,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Survey.cshtml" />
+    <Content Include="Views\Survey\Survey.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Forecast\ForecastFarenheit.cshtml" />
     <Content Include="Views\Forecast\ForecastCelsius.cshtml" />
+    <Content Include="Views\Survey\FavoriteParks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
