@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NPGeek.Web.DAL;
+using NPGeek.Web.Models;
 
 namespace NPGeek.Web.Controllers
 {
@@ -19,9 +20,10 @@ namespace NPGeek.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-
-            return View();
+            List<ParkModel> parks = dal.GetAllParks();
+            return View("Index", parks);
         }
+
 
 		public ActionResult Survey()
 		{

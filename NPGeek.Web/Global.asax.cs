@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NPGeek.Web.DAL;
 
 
 namespace NPGeek.Web
@@ -30,7 +31,7 @@ namespace NPGeek.Web
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             // Map Interfaces to Classes
-            //kernel.Bind<interface>().To<class>();
+            kernel.Bind<IParkDAL>().To<ParkDAL>().WithConstructorArgument("connectionString", connectionString);
 
             return kernel;
         }

@@ -1,8 +1,21 @@
-﻿
+﻿@model IList<NPGeek.Web.Models.ParkModel>
+
 @{
     ViewBag.Title = "Index";
-	@model IList<NPGeek.Web.Models.ParkModel>
 }
 
 <h2>Home</h2>
 
+<div>
+    @foreach (var park in Model)
+    {
+        <div>
+            <img src="~/Content/@(park.ParkCode).jpg" />
+        </div>
+        <div>
+            <h3>@park.Name</h3>
+            <p>@park.State</p>
+            <p>@park.ParkDescription</p>
+        </div>
+    }
+</div>
