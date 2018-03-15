@@ -5,12 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Survey</h2>
+<h2 id="survey">Survey</h2>
 
 <form method="post" action="@Url.Action("FavoriteParks", "Survey")">
 
-    <p>
-        Choose a park:
+    <div class="survey-elements">
+        <p>
+            Choose a park:
+        </p>
+    </div>
+    <div class="survey-elements">
         <select name="ParkCode">
             <option value="" selected="selected">Select a Park</option>
             <option value="CVNP">Cuyahoga Valley National Park</option>
@@ -24,14 +28,23 @@
             <option value="YNP">Yellowstone National Park</option>
             <option value="YNP2">Yosemite National Park</option>
 
-            }
 
         </select>
-
-    </p>
-    <p>Email Address @Html.TextBoxFor(m => m.Email, new { placeholder = "Enter Email Address" })</p>
-    <p>
-        State of Residence:
+    </div>
+    <br />
+    <div class="survey-elements">
+        <p>Email Address @*@Html.TextBoxFor(m => m.Email, new { placeholder = "Enter Email Address" })*@</p>
+    </div>
+    <div class="survey-elements">
+        <input type="text" name="Email" />
+    </div>
+    <br />
+    <div class="survey-elements">
+        <p>
+            State of Residence:
+        </p>
+    </div>
+    <div class="survey-elements">
         <select name="ResidenceState">
             <option value="" selected="selected">Select a State</option>
             <option value="AL">Alabama</option>
@@ -86,9 +99,14 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
         </select>
-    </p>
-    <p>
-        Physical Activity Level:
+    </div>
+    <br />
+    <div class="survey-elements">
+        <p>
+            Physical Activity Level:
+        </p>
+    </div>
+    <div class="survey-elements">
         <select name="ActivityLevel">
             <option value="" selected="selected">Select your Activity Level</option>
             <option value="Inactive">Inactive</option>
@@ -96,8 +114,10 @@
             <option value="Active">Active</option>
             <option value="ExtremelyActive">ExtremelyActive</option>
         </select>
-    </p>
-    <button>Submit</button>
-
+    </div>
+    <br />
+    <div class="survey-elements">
+        <button>Submit</button>
+</div>
 </form>
 
