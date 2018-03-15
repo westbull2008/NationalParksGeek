@@ -26,7 +26,8 @@ namespace NPGeek.Web.Controllers
         public ActionResult FavoriteParks(SurveyModel model)
         {
             bool result = dal.SaveNewSurvey(model);
-            return View();
+            List<FavoriteParksModel> favoriteParksList = dal.GetFavoriteParks();
+            return RedirectToAction("FavoriteParks", favoriteParksList);
         }
     }
 }

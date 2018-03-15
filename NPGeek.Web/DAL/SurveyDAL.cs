@@ -16,41 +16,39 @@ namespace NPGeek.Web.DAL
             this.connectionString = connectionString;
         }
 
-        //public List<SurveyDAL> Get()
-        //{
-        //    List<ForumPost> postList = new List<ForumPost>();
+        public List<FavoriteParksModel> GetFavoriteParks()
+        {
+            List<FavoriteParksModel> surveyList = new List<FavoriteParksModel>();
 
-        //    try
-        //    {
-        //        using (SqlConnection conn = new SqlConnection(connectionString))
-        //        {
-        //            conn.Open();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
 
-        //            SqlCommand cmd = new SqlCommand(@"select * from forum_post;", conn);
+                    SqlCommand cmd = new SqlCommand("select survey_result.parkCode, COUNT(survey_result.parkCode) as Total, parkName FROM survey_result JOIN park ON survey_result.parkCode = park.parkCode group by survey_result.parkCode, park.parkName order by Total desc;", conn);
 
-        //            SqlDataReader reader = cmd.ExecuteReader();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-        //            while (reader.Read())
-        //            {
-        //                ForumPost post = new ForumPost();
+                    while (reader.Read())
+                    {
+                        FavoriteParksModel surveyResults = new FavoriteParksModel();
 
-        //                post.Id = Convert.ToInt32(reader["id"]);
-        //                post.Username = Convert.ToString(reader["username"]);
-        //                post.Subject = Convert.ToString(reader["subject"]);
-        //                post.Message = Convert.ToString(reader["message"]);
-        //                post.PostDate = Convert.ToDateTime(reader["post_date"]);
-        //                postList.Add(post);
+                        surveyResults.ParkCode = Convert.ToString(reader["parkCode"]);
+                        surveyResults.ParkName = Convert.ToString(reader["parkName"]);
+                        surveyResults.Total = Convert.ToInt32(reader["Total"]);
+                        surveyList.Add(surveyResults);
 
-        //            }
-        //        }
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        throw ex;
-        //    }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
 
-        //    return postList;
-        //}
+            return surveyList;
+        }
 
 
         public bool SaveNewSurvey(SurveyModel survey)
@@ -61,7 +59,7 @@ namespace NPGeek.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO survey_result (parkCode, emailAddress, state, activityLevel) VALUES (@parkCode, @subject, @message, @post_date);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO survey_result (parkCode, emailAddress, state, activityLevel) VALUES (@parkCode, @email, @residenceState, @activityLevel);", conn);
                     cmd.Parameters.AddWithValue("@parkCode", survey.ParkCode);
                     cmd.Parameters.AddWithValue("@email", survey.Email);
                     cmd.Parameters.AddWithValue("@residenceState", survey.ResidenceState);

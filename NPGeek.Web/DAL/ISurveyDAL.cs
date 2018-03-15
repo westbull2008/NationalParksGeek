@@ -9,6 +9,7 @@ namespace NPGeek.Web.DAL
     public interface ISurveyDAL
     {
         bool SaveNewSurvey(SurveyModel model);
+        List<FavoriteParksModel> GetFavoriteParks();
 
     }
 }
