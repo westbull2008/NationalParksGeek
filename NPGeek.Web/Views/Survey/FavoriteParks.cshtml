@@ -1,14 +1,22 @@
 ﻿@model  IList<NPGeek.Web.Models.FavoriteParksModel>
 @{
-    ViewBag.Title = "FavoriteParks";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "FavoriteParks";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Favorite Parks</h2>
+<h2>Survey Results!</h2>
 
-@foreach (var park in Model)
-{
-    <p>@park.ParkName @park.Total</p>
+<div id="results">
 
-}
+	@foreach (var park in Model)
+	{
+		<div>
+			<p><strong>@park.ParkName </strong>	- @park.Total</p>
+		</div>
+	}
+</div>
+<div id="results">
+	<img src="~/Content/backpack.png" />
+</div>
+
 

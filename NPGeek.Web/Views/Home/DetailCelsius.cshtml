@@ -1,6 +1,6 @@
 ﻿
 @{
-	ViewBag.Title = "Detail";
+	ViewBag.Title = "DetailCelsius";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	@model NPGeek.Web.Models.ParkModel
 }
@@ -26,18 +26,11 @@
 		<p>Climate: @Model.Climate</p>
 		<p>Founded: @Model.YearFounded</p>
 		<p>Annual Visitors: @Model.AnnualVisitorCount</p>
-		<p>Entry Fee: $@Model.EntryFee.00</p>
+		<p>Entry Fee: @Model.EntryFee</p>
 		<p>Number of Animal Species: @Model.NumberOfAnimalSpecies</p>
 		<br />
 		<p class="text-center"><strong>"@Model.InspirationalQuote"</strong> - @Model.InspirationalQuoteSource</p>
 	</div>
 </div>
 
-@if ((string)Session["TempChoice"] == "C")
-{
-	@Html.Action("ForecastCelsius", "Forecast")
-}
-else
-{
-	@Html.Action("ForecastFarenheit", "Forecast")
-}
+@Html.Action("ForecastCelsius", "Forecast")

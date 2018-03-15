@@ -4,20 +4,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Home</h2>
-
 <div>
-    @foreach (var park in Model)
-    {
-        <div>
-			<a href="@Url.Action("Detail" , "Home", new { parkCode = park.ParkCode })" ><img src="~/Content/@(park.ParkCode).jpg" /></a>
-        </div>
-        <div>
-            <h3>@park.Name</h3>
-            <p>@park.State</p>
-            <p>@park.ParkDescription</p>
-            <a href="@Url.Action("ForecastFarenheit" , "Forecast", new { parkCode = park.ParkCode })" >Weather Forecast</a>
-			<hr />
-        </div>
-    }
+	@foreach (var park in Model)
+	{
+		<div id="info">
+			<a href="@Url.Action("Detail" , "Home", new { parkCode = park.ParkCode })"><img src="~/Content/@(park.ParkCode).jpg" /></a>
+		</div>
+		<div id="info">
+			<h3>@park.Name</h3>
+			<p>Location: @park.State</p>
+			<p>@park.ParkDescription</p>
+		</div>
+		<hr />
+	}
 </div>
+
+

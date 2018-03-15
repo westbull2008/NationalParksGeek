@@ -22,12 +22,18 @@ namespace NPGeek.Web.Controllers
         {
             return View();
         }
+
+		public ActionResult FavoriteParks()
+		{
+			List<FavoriteParksModel> favoriteParksList = dal.GetFavoriteParks();
+			return View(favoriteParksList);
+		}
+
         [HttpPost]
         public ActionResult FavoriteParks(SurveyModel model)
         {
             bool result = dal.SaveNewSurvey(model);
-            List<FavoriteParksModel> favoriteParksList = dal.GetFavoriteParks();
-            return RedirectToAction("FavoriteParks", favoriteParksList);
+            return RedirectToAction("FavoriteParks");
         }
     }
 }

@@ -8,8 +8,8 @@ using NPGeek.Web.Models;
 
 namespace NPGeek.Web.Controllers
 {
-    public class HomeController : Controller
-    {
+	public class HomeController : Controller
+	{
 		IParkDAL dal;
 
 		public HomeController(IParkDAL dal)
@@ -17,12 +17,13 @@ namespace NPGeek.Web.Controllers
 			this.dal = dal;
 		}
 
-        // GET: Home
-        public ActionResult Index()
-        {
-            List<ParkModel> parks = dal.GetAllParks();
-            return View("Index", parks);
-        }
+		// GET: Home
+		public ActionResult Index()
+		{
+			List<ParkModel> parks = dal.GetAllParks();
+			Session["TempChoice"] = GetTempChoice();
+			return View("Index", parks);
+		}
 
 		public ActionResult Detail(string parkCode)
 		{
@@ -31,5 +32,34 @@ namespace NPGeek.Web.Controllers
 			return View("Detail", park);
 		}
 
-    }
+		public ActionResult DetailCelsius(string parkCode)
+		{
+			ParkModel park = dal.GetParkDetail(parkCode);
+
+			return View("DetailCelsius", park);
+		}
+
+		[HttpPost]
+		public ActionResult Detail(string parkCode, string tempChoice)
+		{
+		
+			Session["TempChoice"] = tempChoice;
+			
+			return RedirectToAction("Detail", new { parkCode = parkCode });
+		}
+
+		public string GetTempChoice()
+		{
+			string tempChoice = "";
+			if (Session["TempChoice"] == null)
+			{
+				Session["TempChoice"] = "F";
+			}
+			else
+			{
+				tempChoice = Session["TempChoice"] as string;
+			}
+			return tempChoice;
+		}
+	}
 }

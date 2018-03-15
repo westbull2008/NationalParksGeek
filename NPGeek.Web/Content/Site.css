@@ -19,11 +19,66 @@ textarea {
 #logo img{
 	width: 50vw;
 	height: auto;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 25%;
+	margin-right: 25%;
+
+
 }
 
 #weatherForecast {
 	width: 50px;
 }
 
+#results {
+	display:inline-block;
+	vertical-align: top;
+}
+
+#results img{
+	width: 100px;
+	margin-left: 25px;
+}
+
+#info {
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+}
+
+#info img {
+	width: 400px;
+	height: auto;
+}
+
+#info h3{
+	margin-top: 0;
+	text-align: center;
+}
+
+#detailPage {
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+}
+
+#detailPage img {
+		width: 400px;
+		height: auto;
+	}
+
+h2{
+	text-align: center;
+}
+#detailedInfo p{
+	padding: 0;
+	margin: 0;
+}
+
+#detailPage h3 {
+	margin-top: 0;
+	text-align: center;
+}
+
+table {
+	width: 100%;
+}

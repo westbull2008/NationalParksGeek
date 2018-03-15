@@ -1,55 +1,55 @@
 ﻿@model IList<NPGeek.Web.Models.ForecastModel>
 @{
-    ViewBag.Title = "ForecastCelsius";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "ForecastCelsius";
 }
 
 <h2>Forecast</h2>
-<form method="get" action="@Url.Action("ForecastFarenheit", "Forecast", new { parkCode = Model[1].ParkCode})"><input type="hidden" name="parkCode" value="@Model[1].ParkCode" /><button>View in Farenheit!</button></form>
+<form method="post" action="@Url.Action("Detail", "Home", new { parkCode = Model[1].ParkCode})"><input type="hidden" name="parkCode" value="@Model[1].ParkCode" /><input type="hidden" name="tempChoice" value="F" /><button>View in Farenheit!</button></form>
 
+
+<br />
 
 <table>
-    <tr>
-        <th>Day</th>
-        <th>Low Temp</th>
-        <th>High Temp</th>
-        <th>Forecast</th>
-        <th>Temperature Advisory</th>
-        <th>Recommendations</th>
-    </tr>
+	<tr>
+		<th>Day</th>
+		<th>Low</th>
+		<th>High</th>
+		<th>Forecast</th>
+		<th>Temperature Advisory</th>
+		<th>Recommendations</th>
+	</tr>
 
-    @foreach (var forecast in Model)
-    {
-        <tr>
-            <td>@forecast.FiveDayForecastValue</td>
-            <td>@Math.Floor(forecast.ToCelsius(forecast.Low)) C</td>
-            <td>@Math.Floor(forecast.ToCelsius(forecast.High)) C</td>
-            @*<td>@forecast.Forecast</td>*@
-            <td><img src="~/Content/@(forecast.Forecast).png" id="weatherForecast" /></td>
-            @if (forecast.ToCelsius(forecast.Low) > 24)
-            {
+	@foreach (var forecast in Model)
+	{
+		<tr>
+			<td>@forecast.FiveDayForecastValue</td>
+			<td>@Math.Floor(forecast.ToCelsius(forecast.Low)) C</td>
+			<td>@Math.Floor(forecast.ToCelsius(forecast.High)) C</td>
+			<td><img src="~/Content/@(forecast.Forecast).png" id="weatherForecast" /></td>
+			@if (forecast.ToCelsius(forecast.Low) > 24)
+			{
 
-                <td>Bring an extra gallon of water!</td>
+				<td>Bring an extra gallon of water!</td>
 
-            }
-            else if (forecast.ToCelsius(forecast.Low) < -6)
-            {
+			}
+			else if (forecast.ToCelsius(forecast.Low) < -6)
+			{
 
-                <td>You could be exposed to frigid temperatures. Take extra care!</td>
+				<td>You could be exposed to frigid temperatures. Take extra care!</td>
 
-            }
-            else if ((forecast.ToCelsius(forecast.High)) - (forecast.ToCelsius(forecast.Low)) > 11)
+			}
+			else if ((forecast.ToCelsius(forecast.High)) - (forecast.ToCelsius(forecast.Low)) > 11)
 
-            {
-                <td>The temperature could vary significantly. Wear breathable layers!</td>
-            }
-            else
-            {
-                <td></td>
-            }
+			{
+				<td>The temperature could vary significantly. Wear breathable layers!</td>
+			}
+			else
+			{
+				<td></td>
+			}
 
-            <td>@forecast.Instructions[forecast.Forecast] </td>
-        </tr>
-    }
+			<td>@forecast.Instructions[forecast.Forecast] </td>
+		</tr>
+	}
 
 </table>

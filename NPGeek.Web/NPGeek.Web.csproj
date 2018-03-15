@@ -101,12 +101,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\backpack.png" />
+    <Content Include="Content\backpack2.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cloudy.png" />
     <Content Include="Content\cvnp.jpg" />
     <Content Include="Content\enp.jpg" />
     <Content Include="Content\gcnp.jpg" />
+    <Content Include="Content\geek.png" />
     <Content Include="Content\gnp.jpg" />
     <Content Include="Content\gsmnp.jpg" />
     <Content Include="Content\gtnp.jpg" />
@@ -115,6 +118,7 @@
     <Content Include="Content\partly cloudy.png" />
     <Content Include="Content\rain.png" />
     <Content Include="Content\rmnp.jpg" />
+    <Content Include="Content\scenery.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\snow.png" />
     <Content Include="Content\sunny.png" />
@@ -169,6 +173,7 @@
     <Content Include="Views\Forecast\ForecastFarenheit.cshtml" />
     <Content Include="Views\Forecast\ForecastCelsius.cshtml" />
     <Content Include="Views\Survey\FavoriteParks.cshtml" />
+    <Content Include="Views\Home\DetailCelsius.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
