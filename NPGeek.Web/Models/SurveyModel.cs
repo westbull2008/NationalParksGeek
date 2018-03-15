@@ -11,7 +11,6 @@ namespace NPGeek.Web.Models
     public class SurveyModel
     {
         public string ParkCode { get; set; }
-        public string ParkName { get; set; }
         public string Email { get; set; }
         public string ResidenceState { get; set; }
         public string ActivityLevel { get; set; }

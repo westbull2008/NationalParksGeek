@@ -22,8 +22,10 @@ namespace NPGeek.Web.Controllers
         {
             return View();
         }
-        public ActionResult FavoriteParks()
+        [HttpPost]
+        public ActionResult FavoriteParks(SurveyModel model)
         {
+            bool result = dal.SaveNewSurvey(model);
             return View();
         }
     }
