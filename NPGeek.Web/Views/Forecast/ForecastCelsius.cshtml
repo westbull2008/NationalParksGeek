@@ -4,7 +4,7 @@
 }
 
 <h2>Forecast</h2>
-<form method="post" action="@Url.Action("Detail", "Home", new { parkCode = Model[1].ParkCode})"><input type="hidden" name="parkCode" value="@Model[1].ParkCode" /><input type="hidden" name="tempChoice" value="F" /><button>View in Farenheit!</button></form>
+<form method="post" action="@Url.Action("Detail", "Home", new { parkCode = Model[1].ParkCode})"><input type="hidden" name="parkCode" value="@Model[1].ParkCode" /><input type="hidden" name="tempChoice" value="F" /><button>View in Fahrenheit!</button></form>
 
 
 <br />
@@ -26,21 +26,22 @@
 			<td>@Math.Floor(forecast.ToCelsius(forecast.Low)) C</td>
 			<td>@Math.Floor(forecast.ToCelsius(forecast.High)) C</td>
 			<td><img src="~/Content/@(forecast.Forecast).png" id="weatherForecast" /></td>
-			@if (forecast.ToCelsius(forecast.Low) > 24)
+			@if (forecast.High > 75)
 			{
 
 				<td>Bring an extra gallon of water!</td>
 
-			}
-			else if (forecast.ToCelsius(forecast.Low) < -6)
+            }
+            else if (forecast.Low < 20)
 			{
 
 				<td>You could be exposed to frigid temperatures. Take extra care!</td>
 
-			}
-			else if ((forecast.ToCelsius(forecast.High)) - (forecast.ToCelsius(forecast.Low)) > 11)
+            }
+            else if ((forecast.High - forecast.Low) > 20)
 
-			{
+
+            {
 				<td>The temperature could vary significantly. Wear breathable layers!</td>
 			}
 			else

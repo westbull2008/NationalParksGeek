@@ -11,7 +11,7 @@
 			<a href="@Url.Action("Detail" , "Home", new { parkCode = park.ParkCode })"><img src="~/Content/@(park.ParkCode).jpg" /></a>
 		</div>
 		<div id="info">
-			<h3>@park.Name</h3>
+			<a href="@Url.Action("Detail" , "Home", new { parkCode = park.ParkCode })"><h3>@park.Name</h3></a>
 			<p>Location: @park.State</p>
 			<p>@park.ParkDescription</p>
 		</div>
