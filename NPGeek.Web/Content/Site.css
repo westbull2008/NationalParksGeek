@@ -167,3 +167,23 @@ h3{
 	margin-left: 35px;
 	
 }
+
+#webcams {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+}
+
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}

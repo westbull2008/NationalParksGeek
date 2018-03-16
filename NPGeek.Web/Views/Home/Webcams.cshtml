@@ -1,12 +1,36 @@
 ﻿
 @{
-    ViewBag.Title = "Webcams";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Webcams";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Bald Eagle's Nest Camera - Channel Islands National Park</h3>
-<iframe width="960" height="540" src="https://www.youtube.com/embed/R2EbuOwNASY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div id="webcams">
 
-<h3>Anacapa Ocean Camera - Channel Islands National Park</h3>
-<iframe width="960" height="540" src="https://www.youtube.com/embed/nA6my0Pr2Ks" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<h3 id="webcamTitle">Bald Eagle's Nest Camera - Channel Islands National Park</h3>
+	<div class="videoWrapper">
+		<iframe id="stream" width="960" height="540" src="https://www.youtube.com/embed/R2EbuOwNASY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
 
+	<br />
+
+
+
+	<h3 id="webcamTitle">Katmai National Park - Alaska</h3>
+	<div class="videoWrapper">
+		<iframe width="854" height="480" src="https://www.youtube.com/embed/sapPgr6WJHg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+
+	<br />
+
+	<h3 id="webcamTitle">Anacapa Ocean Camera - Channel Islands National Park</h3>
+	<div class="videoWrapper">
+		<iframe id="stream" width="960" height="540" src="https://www.youtube.com/embed/nA6my0Pr2Ks" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+
+	<br />
+
+	<h3 id="webcamTitle">Cuyahoga Valley National Park (Highlights) - Ohio</h3>
+	<div class="videoWrapper">
+		<iframe width="640" height="360" src="https://www.youtube.com/embed/qlIJfxXB8Jw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+</div>
