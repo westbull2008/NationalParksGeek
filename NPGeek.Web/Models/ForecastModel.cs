@@ -31,6 +31,12 @@ namespace NPGeek.Web.Models
 
 			return result;
 		}
+        //public DateTime ToDateTime(int fiveDayForecastValue)
+        //{
+        //    DateTime result = DateTime.Now
+
+        //    return 
+        //}
 
 	}
 }

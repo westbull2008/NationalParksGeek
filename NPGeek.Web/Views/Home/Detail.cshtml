@@ -1,43 +1,53 @@
 ﻿
 @{
-	ViewBag.Title = "Detail";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	@model NPGeek.Web.Models.ParkModel
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @model NPGeek.Web.Models.ParkModel
 }
 
+<h3>@Model.Name</h3>
+<br />
 
 <br />
 <div>
-	<div id="detailPage">
-		<img src="~/Content/@(Model.ParkCode).jpg" />
-	</div>
-	<div id="detailPage">
-		<h3>@Model.Name</h3>
-		<p>@Model.State</p>
-		<p>@Model.ParkDescription</p>
-	</div>
-	<br />
-	<br />
-	<div id="detailedInfo">
-		<p>Number of Acres: @Model.Acreage</p>
-		<p>Elevation in Feet: @Model.ElevationInFeet</p>
-		<p>Miles of Trails: @Model.MilesOfTrail</p>
-		<p>Number of Campsites: @Model.NumberOfCampsites</p>
-		<p>Climate: @Model.Climate</p>
-		<p>Founded: @Model.YearFounded</p>
-		<p>Annual Visitors: @Model.AnnualVisitorCount</p>
-		<p>Entry Fee: $@Model.EntryFee.00</p>
-		<p>Number of Animal Species: @Model.NumberOfAnimalSpecies</p>
-		<br />
-		<p class="text-center"><strong>"@Model.InspirationalQuote"</strong> - @Model.InspirationalQuoteSource</p>
-	</div>
+    <div id="detailPage">
+        <img src="~/Content/@(Model.ParkCode).jpg" />
+    </div>
+    <div id="detailPage">
+        <p style="text-align: center;">@Model.ParkDescription</p>
+        <br />
+        <br />
+        <div id="detailFactboxDiv" style="margin-left: 30px;">
+            <div id="detailedInfo">
+                <p><strong>Founded: </strong>@Model.YearFounded</p>
+                <p><strong>State: </strong>@Model.State</p>
+                <p><strong>Climate: </strong>@Model.Climate</p>
+                <p><strong>Number of Acres: </strong>@Model.Acreage</p>
+                <p><strong>Elevation in Feet: </strong>@Model.ElevationInFeet</p>
+            </div>
+            <div id="detailedInfo">
+                <p><strong>Miles of Trails: </strong>@Model.MilesOfTrail</p>
+                <p><strong>Number of Animal Species: </strong>@Model.NumberOfAnimalSpecies</p>
+                <p><strong>Number of Campsites: </strong>@Model.NumberOfCampsites</p>
+                <p><strong>Annual Visitors: </strong>@Model.AnnualVisitorCount</p>
+                <p><strong>Entry Fee: </strong>$@Model.EntryFee.00</p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+    </div>
 </div>
+<br />
+<br />
+<p class="text-center"><strong>"@Model.InspirationalQuote"</strong> - @Model.InspirationalQuoteSource</p>
+
 
 @if ((string)Session["TempChoice"] == "C")
 {
-	@Html.Action("ForecastCelsius", "Forecast")
+    @Html.Action("ForecastCelsius", "Forecast")
 }
 else
 {
-	@Html.Action("ForecastFarenheit", "Forecast")
+    @Html.Action("ForecastFarenheit", "Forecast")
 }

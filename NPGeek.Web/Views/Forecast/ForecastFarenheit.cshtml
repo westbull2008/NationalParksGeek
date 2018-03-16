@@ -4,60 +4,63 @@
     ViewBag.Title = "Forecast";
 }
 
-<h2>Forecast</h2>
-<form method="post" action="@Url.Action("Detail", "Home", new { parkCode = Model[1].ParkCode})"><input type="hidden" name="parkCode" value="@Model[1].ParkCode"/><input type="hidden" name="tempChoice" value="C"/><button>View in Celsius!</button></form>
+<h3 id="forecastLine"; style="text-align: left; margin-left: 60px;">Forecast</h3>
+    <form id="forecastLine"; method="post" action="@Url.Action("Detail", "Home", new { parkCode = Model[1].ParkCode})"><input type="hidden" name="parkCode" value="@Model[1].ParkCode" /><input type="hidden" name="tempChoice" value="C" /><button style="margin-left: 750px">View in Celsius!</button></form>
+
 
 <br />
-<table>
+<div id="weatherBox" >
+    <table>
 
-	<tr>
+        <tr>
 
-		<th>Day</th>
+            <th>Day</th>
 
-		<th>Low</th>
+            <th>Low</th>
 
-		<th>High</th>
+            <th>High</th>
 
-		<th>Forecast</th>
+            <th>Forecast</th>
 
-		<th>Temperature Advisory</th>
+            <th>Temperature Advisory</th>
 
-		<th>Recommendations</th>
+            <th>Recommendations</th>
 
-	</tr>
+        </tr>
 
-	@foreach (var forecast in Model)
+        @foreach (var forecast in Model)
 
-	{
-
-	<tr>
-
-		<td>@DateTime.Today.AddDays(forecast.FiveDayForecastValue - 1).ToShortDateString()</td>
-
-		<td>@forecast.Low F</td>
-
-		<td>@forecast.High F</td>
-        @*<td>@forecast.Forecast</td>*@
-        <td><img src="~/Content/@(forecast.Forecast).png" id="weatherForecast" /></td>
-        @if (forecast.High > 75)
         {
-            <td>Bring an extra gallon of water!</td>
-        }
-        else if (forecast.Low < 20)
-        {
-            <td>You could be exposed to frigid temperatures. Take extra care!</td>
-        }
-        else if ((forecast.High - forecast.Low) > 20)
-        {
-            <td>The temperature could vary significantly. Wear breathable layers!</td>
-        }
-        else
-        {
-            <td></td>
+
+            <tr>
+
+                <td>@DateTime.Today.AddDays(forecast.FiveDayForecastValue - 1).ToShortDateString()</td>
+
+                <td>@forecast.Low F</td>
+
+                <td>@forecast.High F</td>
+                @*<td>@forecast.Forecast</td>*@
+                <td><img src="~/Content/@(forecast.Forecast).png" id="weatherForecast" /></td>
+                @if (forecast.High > 75)
+                {
+                    <td>Bring an extra gallon of water!</td>
+                }
+                else if (forecast.Low < 20)
+                {
+                    <td>You could be exposed to frigid temperatures. Take extra care!</td>
+                }
+                else if ((forecast.High - forecast.Low) > 20)
+                {
+                    <td>The temperature could vary significantly. Wear breathable layers!</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+
+                <td>@forecast.Instructions[forecast.Forecast] </td>
+            </tr>
         }
 
-        <td>@forecast.Instructions[forecast.Forecast] </td>
-    </tr>
-    }
-
-</table>
+    </table>
+</div>

@@ -27,13 +27,26 @@ textarea {
     width: 50px;
 }
 
+#weatherBox {
+    border: 2px solid black;
+    background-color: aliceblue;
+    width: 90%;
+    margin-left: 2.5%;
+}
+
+#weatherBox table {
+    margin-left: 10px;
+}
+
+#forecastLine {
+    display: inline-block;
+}
+
 #results {
     display: inline-block;
     vertical-align: top;
 	width: 45%;
 }
-
-
 
 #info {
     display: inline-block;
@@ -54,16 +67,25 @@ textarea {
 #detailPage {
     display: inline-block;
     vertical-align: top;
-    width: 40%;
+    width: 45%;
 }
 
     #detailPage img {
-        width: 400px;
+        width: 500px;
+        border: 2px solid black;
         height: auto;
     }
 
 h2 {
     text-align: center;
+}
+
+#detailedInfo {
+    display: inline-block;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 
 #detailedInfo p {
@@ -75,6 +97,14 @@ h2 {
     margin-top: 0;
     text-align: center;
 }
+
+#detailFactboxDiv {
+    background-color:lightgray;
+    border: 2px solid black;
+    width: 85%;
+
+} 
+
 
 table {
     width: 100%;
