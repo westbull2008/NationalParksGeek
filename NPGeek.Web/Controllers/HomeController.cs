@@ -61,5 +61,10 @@ namespace NPGeek.Web.Controllers
 			}
 			return tempChoice;
 		}
+
+		public ActionResult Webcams()
+		{
+			return View();
+		}
 	}
 }
