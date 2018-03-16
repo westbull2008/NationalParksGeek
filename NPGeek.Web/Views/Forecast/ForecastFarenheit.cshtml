@@ -32,7 +32,7 @@
 
 	<tr>
 
-		<td>@forecast.FiveDayForecastValue</td>
+		<td>@DateTime.Today.AddDays(forecast.FiveDayForecastValue - 1).ToShortDateString()</td>
 
 		<td>@forecast.Low F</td>
 

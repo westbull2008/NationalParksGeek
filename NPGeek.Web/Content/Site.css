@@ -30,12 +30,10 @@ textarea {
 #results {
     display: inline-block;
     vertical-align: top;
+	width: 45%;
 }
 
-    #results img {
-        width: 100px;
-        margin-left: 25px;
-    }
+
 
 #info {
     display: inline-block;
@@ -116,4 +114,26 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: black;
+}
+
+#results #winner{
+	width: 500px;
+	border: 2px solid black;
+
+}
+
+h3{
+	text-align: center;
+
+	margin-bottom: 25px;
+}
+
+#results p{
+	margin-bottom: 2px;
+}
+
+#results #backpack {
+	width: 150px;
+	margin-left: 35px;
+	
 }

@@ -4,19 +4,30 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Survey Results!</h2>
+
+<h3>Today's favorite park is @Model[0].ParkName!</h3>
+<br />
+<div id="results">
+	<img src="~/Content/@(Model[0].ParkCode).jpg" id="winner" />
+</div>
 
 <div id="results">
 
+
+	<p style="text-align: center">@Model[0].ParkDescription</p>
+	<br />
+	<br />
+	<img src="~/Content/backpack.png" style="float:left" id="backpack" />
+
+	<h4 style="text-align: right">Survey Results</h4>
 	@foreach (var park in Model)
 	{
 		<div>
-			<p><strong>@park.ParkName </strong>	- @park.Total</p>
+			<p style="text-align: right"><strong>@park.ParkName </strong>	- @park.Total</p>
 		</div>
 	}
 </div>
-<div id="results">
-	<img src="~/Content/backpack.png" />
-</div>
+
+
 
 

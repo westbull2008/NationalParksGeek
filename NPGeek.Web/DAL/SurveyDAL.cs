@@ -26,7 +26,7 @@ namespace NPGeek.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("select survey_result.parkCode, COUNT(survey_result.parkCode) as Total, parkName FROM survey_result JOIN park ON survey_result.parkCode = park.parkCode group by survey_result.parkCode, park.parkName order by Total desc;", conn);
+                    SqlCommand cmd = new SqlCommand("select survey_result.parkCode, COUNT(survey_result.parkCode) as Total, parkName, parkDescription FROM survey_result JOIN park ON survey_result.parkCode = park.parkCode group by survey_result.parkCode, park.parkName, park.parkDescription order by Total desc;", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -37,6 +37,7 @@ namespace NPGeek.Web.DAL
                         surveyResults.ParkCode = Convert.ToString(reader["parkCode"]);
                         surveyResults.ParkName = Convert.ToString(reader["parkName"]);
                         surveyResults.Total = Convert.ToInt32(reader["Total"]);
+						surveyResults.ParkDescription = Convert.ToString(reader["parkDescription"]);
                         surveyList.Add(surveyResults);
 
                     }

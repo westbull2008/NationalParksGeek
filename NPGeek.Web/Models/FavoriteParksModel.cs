@@ -10,5 +10,6 @@ namespace NPGeek.Web.Models
         public string ParkCode { get; set; }
         public string ParkName { get; set; }
         public int Total { get; set; }
+		public string ParkDescription { get; set; }
     }
 }
