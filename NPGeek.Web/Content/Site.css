@@ -110,6 +110,9 @@ table {
     width: 100%;
 }
 
+#surveyPage {
+	margin-left: 200px;
+}
 .survey-elements {
     display: inline-block;
 }
@@ -126,7 +129,14 @@ table {
 }
 
 .survey-elements h2 {
-    margin-left: 0px;
+	width: 25%;
+    text-align:left;
+}
+
+.survey-elements img{
+	width: 100px;
+	height: auto;
+	margin-left: 200px;
 }
 #survey h2 {
     width: 100px;
@@ -187,3 +197,4 @@ h3{
 	height: 100%;
 
 }
+
