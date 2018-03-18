@@ -22,14 +22,14 @@
                 <p><strong>Founded: </strong>@Model.YearFounded</p>
                 <p><strong>State: </strong>@Model.State</p>
                 <p><strong>Climate: </strong>@Model.Climate</p>
-                <p><strong>Number of Acres: </strong>@Model.Acreage</p>
-                <p><strong>Elevation in Feet: </strong>@Model.ElevationInFeet</p>
+                <p><strong>Number of Acres: </strong>@String.Format("{0:n0}", Model.Acreage)</p>
+                <p><strong>Elevation in Feet: </strong>@String.Format("{0:n0}", Model.ElevationInFeet)</p>
             </div>
             <div id="detailedInfo">
-                <p><strong>Miles of Trails: </strong>@Model.MilesOfTrail</p>
-                <p><strong>Number of Animal Species: </strong>@Model.NumberOfAnimalSpecies</p>
-                <p><strong>Number of Campsites: </strong>@Model.NumberOfCampsites</p>
-                <p><strong>Annual Visitors: </strong>@Model.AnnualVisitorCount</p>
+                <p><strong>Miles of Trails: </strong>@String.Format("{0:n0}", Model.MilesOfTrail)</p>
+                <p><strong>Number of Animal Species: </strong>@String.Format("{0:n0}", Model.NumberOfAnimalSpecies)</p>
+                <p><strong>Number of Campsites: </strong>@String.Format("{0:n0}", Model.NumberOfCampsites)</p>
+                <p><strong>Annual Visitors: </strong>@String.Format("{0:n0}", Model.AnnualVisitorCount)</p>
                 <p><strong>Entry Fee: </strong>$@Model.EntryFee.00</p>
             </div>
         </div>

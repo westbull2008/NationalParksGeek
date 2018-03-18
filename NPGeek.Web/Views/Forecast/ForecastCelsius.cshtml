@@ -22,7 +22,7 @@
             @foreach (var forecast in Model)
         {
             <tr>
-                <td>@DateTime.Today.AddDays(forecast.FiveDayForecastValue - 1).ToShortDateString()</td>
+                <td>@DateTime.Today.AddDays(forecast.FiveDayForecastValue - 1).ToString("m")</td>
                 <td>@Math.Floor(forecast.ToCelsius(forecast.Low)) C</td>
                 <td>@Math.Floor(forecast.ToCelsius(forecast.High)) C</td>
                 <td><img src="~/Content/@(forecast.Forecast).png" id="weatherForecast" /></td>
